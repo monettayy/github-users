@@ -1,0 +1,13 @@
+POST http://github-exam.test/api/login
+Content-Type: application/json
+// 2|kODnSOTVyF5eu4TnWC9BaEjg3uMZSn1NONqGuQCZ
+{
+    "username":"admin",
+    "password":"secret"
+}
+
+###
+
+GET http://github-exam.test/api/github-users?usernames=jhyv,monettay
+Content-Type: application/json
+Authorization: Bearer 2|kODnSOTVyF5eu4TnWC9BaEjg3uMZSn1NONqGuQCZ

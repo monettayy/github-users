@@ -1,0 +1,1 @@
+<sidebar :_auth="{{ \Auth::user()->toJson() }}"></sidebar>
