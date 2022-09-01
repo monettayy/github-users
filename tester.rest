@@ -1,6 +1,6 @@
-POST http://github-exam.test/api/login
+POST http://127.0.0.1:8000/api/login
 Content-Type: application/json
-// 2|kODnSOTVyF5eu4TnWC9BaEjg3uMZSn1NONqGuQCZ
+
 {
     "username":"admin",
     "password":"secret"
@@ -8,6 +8,21 @@ Content-Type: application/json
 
 ###
 
-GET http://github-exam.test/api/github-users?usernames=jhyv,monettay
+GET http://127.0.0.1:8000/api/github-users?usernames=jhyv,monettay
 Content-Type: application/json
-Authorization: Bearer 2|kODnSOTVyF5eu4TnWC9BaEjg3uMZSn1NONqGuQCZ
+Authorization: Bearer 11|yt3JGSjjclu2RVK5yH0dS5Yi3tVtYiqecVu6osDW
+
+
+
+### 
+
+POST http://127.0.0.1:8000/api/logout
+Content-Type: application/json
+Authorization: Bearer 11|yt3JGSjjclu2RVK5yH0dS5Yi3tVtYiqecVu6osDW
+
+
+###
+
+GET http://127.0.0.1:8000/api/hamming-distance/compute?x=1&y=4
+Content-Type: application/json
+Authorization: Bearer 11|yt3JGSjjclu2RVK5yH0dS5Yi3tVtYiqecVu6osDW

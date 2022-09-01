@@ -36,11 +36,15 @@ class AuthController extends Controller
         ]);
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
-        if(Auth::check())
+        if(Auth::guard('web')->check())
         {
             Auth::guard('web')->logout();
+        }
+        else if(Auth::guard('api')->check())
+        {
+            $request->user()->tokens()->delete();
         }
 
         return response()->json([
