@@ -6,11 +6,13 @@ Content-Type: application/json
     "password":"secret"
 }
 
+
+
 ###
 
-GET http://127.0.0.1:8000/api/github-users?usernames=jhyv,monettay
+GET http://127.0.0.1:8000/api/github-users?usernames=monettayy,monettay,monette
 Content-Type: application/json
-Authorization: Bearer 11|yt3JGSjjclu2RVK5yH0dS5Yi3tVtYiqecVu6osDW
+Authorization: Bearer 1|LbsaxGWMAyJ8pvp8XFSZTNoNWOCqtsuADEakWGOZ
 
 
 
@@ -18,11 +20,11 @@ Authorization: Bearer 11|yt3JGSjjclu2RVK5yH0dS5Yi3tVtYiqecVu6osDW
 
 POST http://127.0.0.1:8000/api/logout
 Content-Type: application/json
-Authorization: Bearer 11|yt3JGSjjclu2RVK5yH0dS5Yi3tVtYiqecVu6osDW
+Authorization: Bearer 4|n63Cu1Pc9lFh5MgSw8Yy1dkgs9VPHKqaWFqtetiX
+
 
 
 ###
 
 GET http://127.0.0.1:8000/api/hamming-distance/compute?x=1&y=4
 Content-Type: application/json
-Authorization: Bearer 11|yt3JGSjjclu2RVK5yH0dS5Yi3tVtYiqecVu6osDW

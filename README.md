@@ -56,11 +56,33 @@ To login in the website, use this seeded credentials or register an account:
 
 ## Testing
 
+    Challenge 1:
+    POST /login                         | username, password
+    POST /register                      | name, username, password
+    GET /github-users                   | usernames 
+        usernames -> string; comma separated list of username;
+    
+    Challenge 2:
+    GET /hamming-distance/compute       | x, y
+
+
+
+Note: I only used REST Client from VS Code Extension, But can also execute to Postman, etc.
+
+API for Login
+![API Login](external/gifs/api-login.gif)
+
+
+API for Github Users
+![API Github Users](external/gifs/api-github-users.gif)
+
+
+**Sample Demo**
+
 Registration and Login
-![Registration and Login](external/gifs/registration.gif)
+![Registration](external/gifs/registration.gif)
 
-
-**Demo**
+Requesting for Github User's Information
 ![Demo](external/gifs/demo.gif)
 
 Logs for API and Redis Request
