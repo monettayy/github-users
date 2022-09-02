@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Validator;
 
 use App\Helper\API;
 
@@ -12,12 +13,15 @@ class GithubController extends Controller
     public function findUsers(Request $request)
     {
         $input = $request->all();
-        if(!isset($input['usernames'])){
+        $validator = Validator::make($input, [
+            'usernames' => 'required',
+        ]);
+        if($validator->fails()){
             return response()->json([
-                'success' => false,
-                'message' => 'No usernames from payload',
+                'status'=>'Error',
+                'message'=>'No usernames from payload',
                 'input' => $input
-            ]);
+            ],200);
         }
 
         $list_username = explode (",", $input['usernames']); 
@@ -53,10 +57,13 @@ class GithubController extends Controller
             }
             
             if(isset($response['id'])){
-                $ave_followers = ($response['followers'] / $response['public_repos']);
-                if($ave_followers > 0){
+                if(isset($response['public_repos']) && $response['public_repos']){
+                    $ave_followers = ($response['followers'] / $response['public_repos']);
                     $ave_followers = number_format($ave_followers, 2);
+                }else{
+                    $ave_followers = 0;
                 }
+                
                 $item = [
                     'username'=>$username,
                     'status'=>true,

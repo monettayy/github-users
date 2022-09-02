@@ -28,6 +28,8 @@ Route::get('/register', [PageController::class, 'register'])->name('register');
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
 
+Route::get('/hamming-distance/compute',[HammingDistanceController::class, 'computeHammingDistance']);
+
 Route::group(['middleware'=>'auth:sanctum'], function ($route) {
     $route->get('/home', [PageController::class, 'home'])->name('home');
     $route->get('/users', [UserController::class, 'index'])->name('users.index');

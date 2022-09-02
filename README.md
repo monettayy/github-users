@@ -58,12 +58,15 @@ To login in the website, use this seeded credentials or register an account:
 
     Challenge 1:
     POST /login                         | username, password
-    POST /register                      | name, username, password
+    POST /register                      | name, username, password, repeat_password
     GET /github-users                   | usernames 
         usernames -> string; comma separated list of username;
     
     Challenge 2:
     GET /hamming-distance/compute       | x, y
+
+
+    (Sample API requests and payload can be found in tester.rest file)
 
 
 

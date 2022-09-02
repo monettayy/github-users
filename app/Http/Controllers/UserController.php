@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Validator;
 use Crypt;
 
 use App\Models\User;
@@ -56,15 +56,22 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $input = $request->all();
+        $validator = Validator::make($input, [
             'name' => 'required',
             'username' => 'required|unique:users',
             'password' => 'required|min:6',
+            'repeat_password' => 'required|same:password',
         ]);
+        if($validator->fails()){
+            return response()->json([
+                'status'=>'Error',
+                'message'=>'Incomplete form details',
+                'errors'=>$validator->messages()
+            ],200);
+        }
 
-        $input = $request->all();
         $input['is_admin'] = 0;
-
         $user = User::create($input);
         \Log::channel('user_operations')
             ->info('CREATE_USER|'.strtoupper(\Auth::user()->username), $user->toArray());

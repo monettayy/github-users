@@ -1,8 +1,22 @@
+POST http://127.0.0.1:8000/api/register
+Content-Type: application/json
+
+{
+    "name":"Rest Test",
+    "username":"test123",
+    "password":"secret",
+    "repeat_password":"secret"
+}
+
+
+
+###
+
 POST http://127.0.0.1:8000/api/login
 Content-Type: application/json
 
 {
-    "username":"admin",
+    "username":"test123",
     "password":"secret"
 }
 
@@ -12,7 +26,7 @@ Content-Type: application/json
 
 GET http://127.0.0.1:8000/api/github-users?usernames=monettayy,monettay,monette
 Content-Type: application/json
-Authorization: Bearer 1|LbsaxGWMAyJ8pvp8XFSZTNoNWOCqtsuADEakWGOZ
+Authorization: Bearer 12|98y5ymlo6VB7fweCFZuukVQgPbtSo91hmSJNdywN
 
 
 
@@ -20,7 +34,7 @@ Authorization: Bearer 1|LbsaxGWMAyJ8pvp8XFSZTNoNWOCqtsuADEakWGOZ
 
 POST http://127.0.0.1:8000/api/logout
 Content-Type: application/json
-Authorization: Bearer 4|n63Cu1Pc9lFh5MgSw8Yy1dkgs9VPHKqaWFqtetiX
+Authorization: Bearer 12|98y5ymlo6VB7fweCFZuukVQgPbtSo91hmSJNdywN
 
 
 

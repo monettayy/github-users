@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator;
 
 class HammingDistanceController extends Controller
 {
@@ -42,10 +43,18 @@ class HammingDistanceController extends Controller
 
     public function computeHammingDistance(Request $request)
     {
-        $input = $request->validate([
+        $input = $request->all();
+        $validator = Validator::make($input, [
             'x' => 'required|integer',
             'y' => 'required|integer'
         ]);
+        if($validator->fails()){
+            return response()->json([
+                'status'=>'Error',
+                'message'=>'Incomplete form details',
+                'errors'=>$validator->messages()
+            ],200);
+        }
 
         $response = $this->hammingDistance($input['x'], $input['y']);
         

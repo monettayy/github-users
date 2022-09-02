@@ -29,7 +29,6 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::get('/hamming-distance/compute',[HammingDistanceController::class, 'computeHammingDistance']);
 
 Route::group(['middleware'=>'auth:sanctum'], function ($route) {
-    
     $route->get('/github-users', [GithubController::class, 'findUsers'])->name('github.users');
     $route->post('/logout', [AuthController::class, 'logout']);
 });
